@@ -1,4 +1,4 @@
-   node{
+  node{
    stage('SCM Checkout'){
      git 'https://github.com/javahometech/my-app'
    }
@@ -7,8 +7,6 @@
       def mvnHome =  tool name: 'maven-3', type: 'maven'   
       sh "${mvnHome}/bin/mvn package"
    }
-  
-}
    stage('Email Notification'){
       mail bcc: '', body: '''Hi Welcome to jenkins email alerts
       Thanks
@@ -21,7 +19,7 @@
        message: 'Welcome to Jenkins, Slack!', 
        teamDomain: 'javahomecloud',
        tokenCredentialId: 'slack-demo'
-   }  
    }
+}
 
 
